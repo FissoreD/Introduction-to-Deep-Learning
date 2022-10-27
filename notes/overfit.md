@@ -1,0 +1,1 @@
+The common pattern for overfitting can be seen on learning curve plots, where model performance on the training dataset continues to improve (e.g. loss or error continues to fall or accuracy continues to rise) and performance on the test or validation set improves to a point and then begins to get worse.
