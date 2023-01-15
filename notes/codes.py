@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 from logging.config import valid_ident
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense
@@ -70,3 +71,24 @@ def evaluate_the_model(model, X_test_encoded, y_test):
 
     print(classification_report(y_test, y_pred))
     sns.heatmap(confusion_matrix(y_test, y_pred, normalize='true'), annot=True)
+
+
+def myplot():
+    fig, axs = plt.subplots(1, 2, figsize=(15, 5))
+    # summarize history for accuracy
+    axs[0].plot(history.history['accuracy'])
+    axs[0].plot(history.history['val_accuracy'])
+    axs[0].set_title('model accuracy')
+    axs[0].set_ylabel('accuracy')
+    axs[0].set_xlabel('epoch')
+    axs[0].legend(['train', 'val'], loc='upper left')
+
+    # summarize history for loss
+    axs[1].plot(history.history['loss'])
+    axs[1].plot(history.history['val_loss'])
+    axs[1].set_title('model loss')
+    axs[1].set_ylabel('loss')
+    axs[1].set_xlabel('epoch')
+    axs[1].legend(['train', 'val'], loc='upper left')
+
+    plt.show()
